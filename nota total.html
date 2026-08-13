@@ -1,0 +1,49 @@
+<style>
+#cor {
+    font-size: 25px;
+}
+
+#cor input,
+#cor button {
+    font-size: 25px;
+}
+</style>
+
+
+<div id="cor">
+<input id="nota1" type="Number" placeholder="Digite sua nota">
+<input id="nota2" type="number" placeholder="Digite sua segunda nota">
+<input id="nota3" type="number" placeholder="Digite sua terceira nota">
+<button onclick="somar()">Somar</button>
+
+<p id="resultado"></p>
+<script type="text/javascript">
+
+function somar() {
+
+let nota1 = Number(document.getElementById("nota1").value);
+let nota2 = Number(document.getElementById("nota2").value);
+let nota3 = Number(document.getElementById("nota3").value);
+
+let notaFinal = nota1 + nota2 + nota3;
+let media = notaFinal/3;
+media = media.toFixed(2);
+if (media>=6)
+{
+document.getElementById("cor").style="color:green";
+document.getElementById("resultado").innerText = "sua nota é " +media+ " voce ficou acima da media";
+
+}
+else 
+{
+		document.getElementById("cor").style="color:red";
+document.getElementById("resultado").innerText = "sua nota é " +media+ " voce ficou abaixo da media melhore";
+}
+   
+
+}
+
+
+
+</script>
+</div>
