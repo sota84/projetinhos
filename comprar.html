@@ -1,0 +1,98 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    select,
+    input {
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #555;
+        border-radius: 8px;
+    }
+
+    select {
+        width: 250px;
+        cursor: pointer;
+    }
+
+    input {
+        width: 100px;
+        text-align: center;
+    }
+
+    select:focus,
+    input:focus {
+        outline: none;
+        border-color: blue;
+    }
+</style>
+
+
+<label>produto</label>
+
+<select id="produto">
+	
+<option value="">Escolha um produto</option>
+<option value="2000">Tv R$2000</option>
+<option value="20000">Carro R$20.000</option>
+
+</select>
+
+<label>Quantidade</label>
+
+<input type="number" id="Quantidade" min=1 value="1">
+
+<h2>Total R$ <span id="total">0</span></h2>
+
+<script>
+
+//quantidade de produtos
+let quantTv = 10;
+let quantCar = 5;
+
+//coisas	
+let produto = document.getElementById("produto")
+let quantidade = document.getElementById("Quantidade")
+let total = document.getElementById("total")
+
+
+function calcular() {
+
+let preco = Number(produto.value);
+let quanto = Number(quantidade.value);
+
+if (quanto > quantTv && quanto>=0 && produto.value =="2000") {
+ quantidade.value = quantTv;
+quanto = quantTv;
+
+}
+
+if (quanto > quantCar && quanto>=0 && produto.value =="20000") {
+
+ quantidade.value = quantCar;
+quanto = quantCar;
+
+}
+
+
+if (quanto<0)
+{
+	quanto=0
+}
+let resultado = preco * quanto
+
+   total.textContent = resultado.toFixed(2);
+
+
+}
+
+
+produto.addEventListener("input", calcular);
+
+quantidade.addEventListener("input", calcular);
+
+</script>
