@@ -3,7 +3,7 @@
         font-family: Arial, sans-serif;
         text-align: center;
     }
-
+    button,
     select,
     input {
         display: block;
@@ -23,7 +23,12 @@
         width: 100px;
         text-align: center;
     }
+button {
+        width: 100px;
+        text-align: center;
+    }
 
+    button:focus,
     select:focus,
     input:focus {
         outline: none;
@@ -31,28 +36,31 @@
     }
 </style>
 
-
 <label>produto</label>
 
 <select id="produto">
 	
 <option value="">Escolha um produto</option>
-<option value="2000">Tv R$2000</option>
+<option value="2000">Tv R$2.000</option>
 <option value="20000">Carro R$20.000</option>
+<option value="25">pizza R$25</option>
 
 </select>
 
 <label>Quantidade</label>
 
-<input type="number" id="Quantidade" min=1 value="1">
+<input type="number" id="Quantidade" min=0 value="1">
 
 <h2>Total R$ <span id="total">0</span></h2>
+
+<button onclick="comprar()">comprar</button>
 
 <script>
 
 //quantidade de produtos
 let quantTv = 10;
 let quantCar = 5;
+let pizza = 10;
 
 //coisas	
 let produto = document.getElementById("produto")
@@ -60,10 +68,18 @@ let quantidade = document.getElementById("Quantidade")
 let total = document.getElementById("total")
 
 
+
+
 function calcular() {
 
 let preco = Number(produto.value);
 let quanto = Number(quantidade.value);
+
+if (quanto > pizza && quanto>=0 && produto.value =="25") {
+ quantidade.value = pizza;
+quanto = pizza;
+
+}
 
 if (quanto > quantTv && quanto>=0 && produto.value =="2000") {
  quantidade.value = quantTv;
@@ -94,5 +110,34 @@ let resultado = preco * quanto
 produto.addEventListener("input", calcular);
 
 quantidade.addEventListener("input", calcular);
+
+function comprar() {
+let preco = Number(produto.value);
+let quanto = Number(quantidade.value);
+
+
+if (quanto>0 && preco > 0) {
+
+if (preco===25)
+{
+pizza -= quanto
+}
+
+if (preco===20000)
+{
+quantCar -= quanto
+}
+
+if (preco===2000)
+{
+quantTv -= quanto
+}
+
+ quantidade.value = 0;
+        calcular();
+
+}
+
+}
 
 </script>
