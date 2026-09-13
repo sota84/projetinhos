@@ -1,0 +1,212 @@
+<style>
+ body {
+        text-align: center;
+       margin: 100;
+    }
+ 
+
+   button {
+        padding: 10px;
+    }
+
+
+.roletas {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+</style>
+
+<h2>Betinho</h2>
+
+<div class="roletas">
+    <h2><span id="roleta"></span></h2>
+    <h2><span id="roleta2"></span></h2>
+    <h2><span id="roleta3"></span></h2>
+    
+</div>
+
+<button onclick="enviar()">Apostar</button> 
+<div id="resultado">seu saldo: R$</div>
+<input id="aposta" type="number" placeholder="Digite o quanto quer apostar" min=1 value="0">
+
+<script type="text/javascript">
+
+document.getElementById("roleta").innerHTML = "7️⃣";
+document.getElementById("roleta2").innerHTML = "7️⃣";
+document.getElementById("roleta3").innerHTML = "7️⃣";
+
+
+let money = 750
+
+let numero1 = 0
+let numero2 = 0
+let numero3 = 0
+
+document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+document.getElementById("aposta").addEventListener("input", function() {
+
+    let apostas = Number(this.value);
+
+    if (apostas > money) {
+        this.value = money;
+    }
+ 
+      if (apostas < 0) {
+        this.value = money;
+    }
+
+});
+
+//apostas 🍒 🍋 🍊 💎 7️⃣ 💀
+
+
+
+function enviar(){
+
+    let apostas = Number(document.getElementById("aposta").value);
+
+    if (money > 0){
+
+        if (apostas > 0){
+
+
+            
+            money-=apostas
+
+            document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+
+            numero1 = Math.floor(Math.random() * 6) + 1;
+            numero2 = Math.floor(Math.random() * 6) + 1;
+            numero3 = Math.floor(Math.random() * 6) + 1;
+
+            if (numero1===1) {
+            document.getElementById("roleta").innerHTML = "🍒";
+        }
+           if (numero2===1) {
+            document.getElementById("roleta2").innerHTML = "🍒";
+        }
+           if (numero3===1) {
+            document.getElementById("roleta3").innerHTML = "🍒";
+        }
+
+        if (numero1===2) {
+            document.getElementById("roleta").innerHTML = "🍋";
+        }
+           if (numero2===2) {
+            document.getElementById("roleta2").innerHTML = "🍋";
+        }
+           if (numero3===2) {
+            document.getElementById("roleta3").innerHTML = "🍋";
+        }
+
+        if (numero1===3) {
+            document.getElementById("roleta").innerHTML = "🍊";
+        }
+           if (numero2===3) {
+            document.getElementById("roleta2").innerHTML = "🍊";
+        }
+           if (numero3===3) {
+            document.getElementById("roleta3").innerHTML = "🍊";
+        }
+
+         if (numero1===4) {
+            document.getElementById("roleta").innerHTML = "💎";
+        }
+           if (numero2===4) {
+            document.getElementById("roleta2").innerHTML = "💎";
+        }
+           if (numero3===4) {
+            document.getElementById("roleta3").innerHTML = "💎";
+        }
+
+        if (numero1===5) {
+            document.getElementById("roleta").innerHTML = "7️⃣";
+        }
+           if (numero2===5) {
+            document.getElementById("roleta2").innerHTML = "7️⃣";
+        }
+           if (numero3===5) {
+            document.getElementById("roleta3").innerHTML = "7️⃣";
+        }
+
+
+       if (numero1===6) {
+            document.getElementById("roleta").innerHTML = "💀";
+        }
+           if (numero2===6) {
+            document.getElementById("roleta2").innerHTML = "💀";
+        }
+           if (numero3===6) {
+            document.getElementById("roleta3").innerHTML = "💀";
+        }
+}
+
+if (numero1===1 && numero2===1 && numero3===1)
+{
+
+    money += apostas*10
+    document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+
+}
+if (numero1===2 && numero2===2 && numero3===2)
+{
+
+    money += apostas*5
+    document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+
+}
+if (numero1===3 && numero2===3 && numero3===3)
+{
+
+    money += apostas*8
+    document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+
+}
+if (numero1===4 && numero2===4 && numero3===4)
+{
+
+    money += apostas*15
+    document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+
+}
+if (numero1===5 && numero2===5 && numero3===5)
+{
+
+    money += apostas*20
+    document.getElementById("resultado").innerHTML = "seu saldo: R$"+money;
+
+}
+
+if (numero1 === numero2 && numero1 !== numero3)
+{
+    money += apostas * 2;
+    document.getElementById("resultado").innerHTML = "seu saldo: R$" + money;
+}
+
+if (numero1 === numero3 && numero1 !== numero2)
+{
+    money += apostas * 2;
+    document.getElementById("resultado").innerHTML = "seu saldo: R$" + money;
+}
+
+if (numero2 === numero3 && numero2 !== numero1)
+{
+    money += apostas * 2;
+    document.getElementById("resultado").innerHTML = "seu saldo: R$" + money;
+}
+
+if (money === 0)
+{
+
+window.location.reload();
+
+}
+
+}
+
+}
+
+</script> 
