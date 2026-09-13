@@ -1,0 +1,118 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    button,
+    select{
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #555;
+        border-radius: 8px;
+    }
+
+    div {
+        width: 100px;
+        text-align: center;
+          margin: 10px auto;
+        padding: 10px;
+        font-size: 16px;
+
+    }
+
+    label {
+        width: 1000px;
+        text-align: center;
+    }
+button {
+        width: 100px;
+        text-align: center;
+    }
+
+    button:focus,
+    select:focus,
+    div:focu,
+    label:focus {
+        outline: none;
+        border-color: blue;
+    }
+</style>
+
+
+
+
+<label for="escolha">sua escolha</label>
+
+<button id="butao" onclick="pedra()">pedra</button>
+<button id="butao" onclick="papel()">papel</button>
+<button id="butao" onclick="tesoura()">tesoura</button>
+
+
+<label for="escolhaj2">Bot escolhe</label>
+
+<div id="resultado">quem venceu: </div>
+<button id="butao" onclick="mais()">novo Round</button>
+
+<script type="text/javascript">
+
+let numero = Math.floor(Math.random() * 3) + 1;
+
+function pedra(){
+
+if (numero===3){
+document.getElementById("resultado").innerHTML="Resultado: voce venceu"
+
+}
+if (numero===2){
+document.getElementById("resultado").innerHTML="Resultado: Bot venceu"
+
+}
+if (numero===1){
+document.getElementById("resultado").innerHTML="Resultado: empate"
+
+}
+}
+
+function papel(){
+
+if (numero===1){
+document.getElementById("resultado").innerHTML="Resultado: voce venceu"
+
+}
+if (numero===3){
+document.getElementById("resultado").innerHTML="Resultado: Bot venceu"
+
+}
+if (numero===2){
+document.getElementById("resultado").innerHTML="Resultado: empate"
+
+}
+
+}
+
+function tesoura(){
+
+if (numero===2){
+document.getElementById("resultado").innerHTML="Resultado: voce venceu"
+
+}
+if (numero===1){
+document.getElementById("resultado").innerHTML="Resultado: Bot venceu"
+
+}
+if (numero===3){
+document.getElementById("resultado").innerHTML="Resultado: empate"
+
+}
+
+}
+
+function mais()
+{
+window.location.reload()
+}
+
+
+</script>
