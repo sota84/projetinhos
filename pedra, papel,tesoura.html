@@ -33,7 +33,7 @@ button {
 
     button:focus,
     select:focus,
-    div:focu,
+    div:focus,
     label:focus {
         outline: none;
         border-color: blue;
@@ -45,9 +45,9 @@ button {
 
 <label for="escolha">sua escolha</label>
 
-<button id="butao" onclick="pedra()">pedra</button>
-<button id="butao" onclick="papel()">papel</button>
-<button id="butao" onclick="tesoura()">tesoura</button>
+<button  onclick="pedra()">pedra</button>
+<button  onclick="papel()">papel</button>
+<button  onclick="tesoura()">tesoura</button>
 
 
 <label for="escolhaj2">Bot escolhe</label>
@@ -111,7 +111,7 @@ document.getElementById("resultado").innerHTML="Resultado: empate"
 
 function mais()
 {
-window.location.reload()
+  numero = Math.floor(Math.random() * 3) + 1;
 }
 
 
